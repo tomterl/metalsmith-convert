@@ -1,9 +1,9 @@
 # metalsmith-convert
 
-This is a plugin for [Metalsmith][] that uses [node-gm][] to convert image-file
+This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-file
 
 [metalsmith]: http://metalsmith.io
-[node-gm]: https://github.com/aheckmann/gm
+[node-imagemagick-native]: https://github.com/mash/node-imagemagick-native
 
 ##  Usage
 
@@ -39,4 +39,4 @@ metalsmith-convert requires a `src` and `target` options.
 - `src` is a globbing pattern that specifies which files to convert
 - `target` is an extension (starting with `.`) that determins the image format all files matching `src` are converted to
 - `remove` if set to `true`, don't include the source-file in the build directory.'
-
+- `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`)
