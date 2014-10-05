@@ -1,6 +1,6 @@
 # metalsmith-convert
 
-This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-file
+This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-files
 
 Continuous testing curtesy of travis-ci:
 
@@ -51,12 +51,12 @@ It is possible to pass options as array of option-objects to implement multiple 
   "plugins": {
     "metalsmith-convert": [
       {
-        "src": "**/*.svn",
+        "src": "**/*.svg",
         "target": "png",
         "resize": {width: 320, height: 240}
       },
       {
-        "src": "**/*.svn",
+        "src": "**/*.svg",
         "target": "png",
         "resize": {width: 640, height: 480}
       }
