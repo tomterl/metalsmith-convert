@@ -13,8 +13,8 @@ If using the CLI for Metalsmith, metalsmith-convert can be used like any other p
 {
   "plugins": {
     "metalsmith-convert": {
-      "src": "*.svn",
-      "target": ".png"
+      "src": "**/*.svn",
+      "target": "png"
     }
   }
 }
@@ -26,8 +26,8 @@ For Metalscript's JavaScript API, metalsmith-convert can be used like any other 
 var copy = require('metalsmith-convert');
 require('metalsmith')(__dirname)
   .use(convert({
-    src: '*.svg',
-    target: '.png'
+    src: '**/*.svg',
+    target: 'png'
   })
   .build();
 ```
@@ -38,5 +38,5 @@ metalsmith-convert requires a `src` and `target` options.
 
 - `src` is a globbing pattern that specifies which files to convert
 - `target` is an extension (starting with `.`) that determins the image format all files matching `src` are converted to
-
+- `remove` if set to `true`, don't include the source-file in the build directory.'
 
