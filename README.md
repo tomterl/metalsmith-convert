@@ -2,6 +2,8 @@
 
 This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-file
 
+Continuous testing curtesy of travis-ci:
+
 [![Build Status](https://travis-ci.org/tomterl/metalsmith-convert.png)](https://travis-ci.org/tomterl/metalsmith-convert)
 
 [metalsmith]: http://metalsmith.io
