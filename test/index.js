@@ -23,9 +23,21 @@ describe('metalsmith-convert', function() {
       IM: false,
       remove: true
     }, function(err, files) {
-      if (err) return done(err);
-      assert(files['static/images/test.png'], 'file was converted');
-      done();
-    });
+         if (err) return done(err);
+         assert(files['static/images/test.png'], 'file was converted');
+         return done();
+       });
+  });
+  it('should resize the image', function(done) {
+    convert_test({
+      src: '**/*.svg',
+      target: 'png',
+      remove: true,
+      resize: { width: 320, height: 240 }
+    }, function(err, files){
+         if (err) return done(err);
+         assert(files['static/images/test_320_240.png'], 'file was resized');
+         return done();
+       });
   });
 });
