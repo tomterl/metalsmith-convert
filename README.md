@@ -41,7 +41,8 @@ require('metalsmith')(__dirname)
 metalsmith-convert requires a `src` and `target` options.
 
 - `src` is a globbing pattern that specifies which files to convert
-- `target` is an extension (starting with `.`) that determins the image format all files matching `src` are converted to
+- `target` is an imagemagick format specifier
+- `extension` the file extension to use for the conversion target (starting with `.`). Set to `"." + target` if not given explicitly.'
 - `remove` if set to `true`, don't include the source-file in the build directory.'
 - `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`)
 
