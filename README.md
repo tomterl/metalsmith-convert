@@ -24,7 +24,7 @@ This module uses node-imagemagick-native. You must be able to compile
 c++ code to install imagemagick-native. The [Readme][]
 provides instructions for Linux, Mac OS X and Windows respectivly.
 
-[imn-readme]: https://github.com/mash/node-imagemagick-native
+[Readme]: https://github.com/mash/node-imagemagick-native
 
 ##  Usage
 
