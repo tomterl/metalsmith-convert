@@ -9,6 +9,23 @@ Continuous testing curtesy of travis-ci:
 [metalsmith]: http://metalsmith.io
 [node-imagemagick-native]: https://github.com/mash/node-imagemagick-native
 
+## Installation
+
+This module us released via npm, install the latest released version with
+
+
+```
+npm install --save metalsmith-convert
+```
+
+### Dependencies
+
+This module uses node-imagemagick-native. You must be able to compile
+c++ code to install imagemagick-native. The [Readme][]
+provides instructions for Linux, Mac OS X and Windows respectivly.
+
+[Readme]: https://github.com/mash/node-imagemagick-native
+
 ##  Usage
 
 If using the CLI for Metalsmith, metalsmith-convert can be used like any other plugin by including it in `metalsmith.json`.  For example:
