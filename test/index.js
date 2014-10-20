@@ -14,6 +14,25 @@ function convert_test(options, fn) {
 }
 
 describe('metalsmith-convert', function() {
+  it('should croak on missing paramters', function(done){
+    convert_test({}, function(err, files) {
+      if(!err) return done(new Error("Didn't error out on missing arguments."));
+      assert.equal(err.message, 'metalsmith-convert: "src" and "target" args required', 'Correct error was thrown');
+      return done();
+    });
+  });
+  it('should croak on partially missing paramters', function(done){
+    convert_test([
+      { src: '**/*.svg',
+        target: 'png',
+        resize: { width: 320, height: 240 }
+      },
+      {}], function(err, files) {
+             if(!err) return done(new Error("Didn't error out on missing arguments."));
+             assert.equal(err.message, 'metalsmith-convert: "src" and "target" args required', 'Correct error was thrown');
+             return done();
+           });
+  });
   it('should convert from .svg to .png', function(done) {
     convert_test({
       src: '**/*.svg',
