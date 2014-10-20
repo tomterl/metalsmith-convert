@@ -1,7 +1,5 @@
 var assert = require('assert'),
-    dir_equal = require('assert-dir-equal'),
     metalsmith = require('metalsmith'),
-    collections = require('metalsmith-collections'),
     convert = require('..');
 
 function convert_test(options, fn) {
