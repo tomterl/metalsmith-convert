@@ -2,7 +2,7 @@
 
 This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-files
 
-Continuous testing curtesy of travis-ci:
+Continuous testing courtesy of travis-ci:
 
 [![Build Status](https://travis-ci.org/tomterl/metalsmith-convert.png)](https://travis-ci.org/tomterl/metalsmith-convert)
 
@@ -11,7 +11,7 @@ Continuous testing curtesy of travis-ci:
 
 ## Installation
 
-This module us released via npm, install the latest released version with
+This module is released via npm, install the latest released version with
 
 
 ```
@@ -22,7 +22,7 @@ npm install --save metalsmith-convert
 
 This module uses node-imagemagick-native. You must be able to compile
 c++ code to install imagemagick-native. The [Readme][]
-provides instructions for Linux, Mac OS X and Windows respectivly.
+provides instructions for Linux, Mac OS X and Windows respectively.
 
 [Readme]: https://github.com/mash/node-imagemagick-native
 
