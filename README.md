@@ -57,11 +57,12 @@ require('metalsmith')(__dirname)
 
 metalsmith-convert requires a `src` and `target` options.
 
-- `src` is a globbing pattern that specifies which files to convert
-- `target` is an imagemagick format specifier
+- `src` is a globbing pattern that specifies which files to convert.
+- `target` is an imagemagick format specifier.
 - `extension` the file extension to use for the conversion target (starting with `.`). Set to `"." + target` if not given explicitly.'
 - `remove` if set to `true`, don't include the source-file in the build directory.'
-- `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`)
+- `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`) unless no explicit filename is given.
+- `outputFilename` specifies the the name of the output file (the extension will still be added). `%FILE%` can be used to reference the original filename and add a pre- or suffix to it. E.g. `%FILE%_suffix` or `prefix_%FILE%`.
 
 It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes:
 ```
@@ -76,7 +77,8 @@ It is possible to pass options as array of option-objects to implement multiple 
       {
         "src": "**/*.svg",
         "target": "png",
-        "resize": {width: 640, height: 480}
+        "resize": {width: 640, height: 480},
+        "outputFilename": "%FILE%_large"
       }
     ]
   }
