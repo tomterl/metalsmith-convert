@@ -45,6 +45,19 @@ describe('metalsmith-convert', function() {
          return done();
        });
   });
+  it('should identify the image size', function(done) {
+    convert_test({
+      src: '**/*.svg',
+      target: 'png',
+      IM: false,
+      remove: true,
+      nameFormat: '%b_%x_%y%e'
+    }, function(err, files) {
+         if (err) return done(err);
+         assert(files['static/images/test_1052_744.png'], 'size was identified');
+         return done();
+       });
+  });
   it('should resize the image', function(done) {
     convert_test({
       src: '**/*.svg',
