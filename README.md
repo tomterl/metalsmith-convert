@@ -41,7 +41,7 @@ If using the CLI for Metalsmith, metalsmith-convert can be used like any other p
 }
 ```
 
-For Metalscript's JavaScript API, metalsmith-convert can be used like any other plugin, by attaching it to the function invocation chain on the Metalscript object.  For example:
+For metalsmiths JavaScript API, metalsmith-convert can be used like any other plugin, by attaching it to the function invocation chain on the metalscript object.  For example:
 
 ```js
 var copy = require('metalsmith-convert');
@@ -66,7 +66,7 @@ metalsmith-convert requires a `src` and `target` options.
   - `%b` the basename of the source file, e.g. given `source.png`, the value will be `source`
   - `%e` the extension of the target format, including the dot
   - `%x` the width of the resulting image
-  - `%y` the height if the resultung image
+  - `%y` the height if the resulting image
   
 It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
 ```
