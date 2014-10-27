@@ -89,4 +89,21 @@ describe('metalsmith-convert', function() {
         return done();
       });
   });
+  it('should honour the nameFormat option', function(done) {
+    convert_test([
+      { src: '**/*.svg',
+        target: 'png',
+        resize: { width: 320, height: 240 },
+        nameFormat: '%b_thumb%e'
+      },
+      { src: '**/*.svg',
+        target: 'png',
+        resize: { width: 640, height: 480 },
+        nameFormat: '%b_thumb_large%e'
+      }], function(err, files){
+        if (err) return done(err);
+        assert(files['static/images/test_thumb.png'] && files['static/images/test_thumb_large.png'], 'fileFormat was correctly used');
+        return done();
+      });
+  });
 });
