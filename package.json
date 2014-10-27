@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-convert",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Metalsmith plugin for converting images between file formats",
   "readmeFilename": "README.md",
   "bugs": {
