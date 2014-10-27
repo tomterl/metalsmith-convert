@@ -69,7 +69,7 @@ metalsmith-convert requires a `src` and `target` options.
   - `%y` the height if the resulting image
   
 It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
-```
+```json
 {
   "plugins": {
     "metalsmith-convert": [
