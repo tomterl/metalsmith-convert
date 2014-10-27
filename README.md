@@ -59,11 +59,16 @@ metalsmith-convert requires a `src` and `target` options.
 
 - `src` is a globbing pattern that specifies which files to convert
 - `target` is an imagemagick format specifier
-- `extension` the file extension to use for the conversion target (starting with `.`). Set to `"." + target` if not given explicitly.'
-- `remove` if set to `true`, don't include the source-file in the build directory.'
-- `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`)
-
-It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes:
+- `extension` the file extension to use for the conversion target (starting with `.`). Set to `"." + target` if not given explicitly.
+- `remove` if set to `true`, don't include the source-file in the build directory.
+- `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`) if `nameFormat` is not given.
+- `nameFormat` give the format for the names of the converted files, the following placeholders are available
+  - `%b` the basename of the source file, e.g. given `source.png`, the value will be `source`
+  - `%e` the extension of the target format, including the dot
+  - `%x` the width of the resulting image
+  - `%y` the height if the resultung image
+  
+It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
 ```
 {
   "plugins": {
@@ -71,12 +76,14 @@ It is possible to pass options as array of option-objects to implement multiple 
       {
         "src": "**/*.svg",
         "target": "png",
-        "resize": {width: 320, height: 240}
+        "resize": {width: 320, height: 240},
+        "nameFormat": "%b_thumb%e"
       },
       {
         "src": "**/*.svg",
         "target": "png",
-        "resize": {width: 640, height: 480}
+        "resize": {width: 640, height: 480},
+        "nameFormat": "%b_thumb_large%e"
       }
     ]
   }
