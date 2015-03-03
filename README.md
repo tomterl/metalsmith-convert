@@ -62,6 +62,10 @@ metalsmith-convert requires a `src` and `target` options.
 - `extension` the file extension to use for the conversion target (starting with `.`). Set to `"." + target` if not given explicitly.
 - `remove` if set to `true`, don't include the source-file in the build directory.
 - `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`) if `nameFormat` is not given.
+- resizeStyle: optional. default: 'aspectfill'. can be 'aspectfit','fill'
+  - aspectfill: keep aspect ratio, get the exact provided size.
+  - aspectfit:  keep aspect ratio, get maximum image that fits inside provided size
+  - fill:       forget aspect ratio, get the exact provided size
 - `nameFormat` give the format for the names of the converted files, the following placeholders are available
   - `%b` the basename of the source file, e.g. given `source.png`, the value will be `source`
   - `%e` the extension of the target format, including the dot
