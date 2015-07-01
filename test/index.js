@@ -1,7 +1,8 @@
 var assert = require('assert'),
     metalsmith = require('metalsmith'),
     convert = require('..');
-    fs = require('fs');
+    fs = require('fs'),
+    sizeOf = require('image-size');
 
 function convert_test(options, fn) {
   // build callback can be called multiple times if an error condition occurs
@@ -128,8 +129,13 @@ describe('metalsmith-convert', function() {
         nameFormat: '%b_thumb%e'
     }, function(err, files){
       if (err) return done(err);
-        assert.equal(files['static/images/test_thumb.png'].contents, fs.readFileSync('test/fixtures/simple/expected/test_thumb.png', 'utf8'), 'aspectFit was correctly used');
-        return done();
+        var result = sizeOf(files['static/images/test_thumb.png'].contents);
+
+        sizeOf('test/fixtures/simple/expected/test_thumb.png', function (err, dimensions) {
+          if (err) return done(err);
+          assert.deepEqual(result, dimensions, 'aspectFit was correctly used');
+          done();
+        });
     });
   });
 });
