@@ -72,7 +72,7 @@ metalsmith-convert requires the `src` and `target` options.
   - `%x` the width of the resulting image
   - `%y` the height if the resulting image
 
-The plugin also forwards certain options directly to imagemagick-native, these options are `density`, `blur`, `rotate`, `flip`, `strip` and `quality`. See [imagemagick-native docs](https://github.com/mash/node-imagemagick-native#convertoptions-callback) for more info.
+The plugin also forwards certain options directly to imagemagick-native, these options are `density`, `blur`, `rotate`, `flip`, `strip`, `gravity` and `quality`. See [imagemagick-native docs](https://github.com/mash/node-imagemagick-native#convertoptions-callback) for more info.
 
 It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
 ```json
