@@ -138,12 +138,12 @@ describe('metalsmith-convert', function() {
         });
     });
   });
-  it('should stub the image', function(done) {
+  it('should rename_only the image', function(done) {
     convert_test([
       { src: '**/*.svg',
         target: 'png',
         resize: { width: 160, height: 120 },
-        stub: true
+        rename_only: true
       },
       {
         src: '**/*.svg',
