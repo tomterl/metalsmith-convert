@@ -64,10 +64,10 @@ metalsmith-convert requires the `src` and `target` options.
 - `resize` set to `{width: XXX, height: YYY}` to resize the image; the name will reflect the size (`name_XXX_YYY.ext`) if `nameFormat` is not given.
   - `resizeStyle`: optional. default: 'aspectfill'. can be 'aspectfit','fill'. Must be added as a parameter to the `resize` option.
     - `aspectfill`: keep aspect ratio, get the exact provided size.
-    - `aspectfit`:  keep aspect ratio, get maximum image that fits inside provided size
-    - `fill`:       forget aspect ratio, get the exact provided size
-- `rename_only` omits the call to ImageMagick and renames the file if set to true.
-- `nameFormat` give the format for the names of the converted files, the following placeholders are available
+    - `aspectfit`: keep aspect ratio, get maximum image that fits inside provided size
+    - `fill`: forget aspect ratio, get the exact provided size
+- `rename_only`: if set to true, omits the call to ImageMagick and only moves the files to their intended target.
+- `nameFormat`: the format for the names of the converted files, the following placeholders are available
   - `%b` the basename of the source file, e.g. given `source.png`, the value will be `source`
   - `%e` the extension of the target format, including the dot
   - `%x` the width of the resulting image
@@ -96,3 +96,10 @@ It is possible to pass options as array of option-objects to implement multiple 
   }
 }
 ```
+
+## Development
+
+To speed up your development cycle you can use the `rename_only`
+option, pictures will not be processed and have a potentially wrong
+file ending, but if your setup can cope with that, on demand scaling
+might be preferable to longer conversion times.
