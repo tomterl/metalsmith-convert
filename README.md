@@ -66,6 +66,7 @@ metalsmith-convert requires the `src` and `target` options.
     - `aspectfill`: keep aspect ratio, get the exact provided size.
     - `aspectfit`:  keep aspect ratio, get maximum image that fits inside provided size
     - `fill`:       forget aspect ratio, get the exact provided size
+- `stub` omits the call to ImageMagick and renames the file if set to true.
 - `nameFormat` give the format for the names of the converted files, the following placeholders are available
   - `%b` the basename of the source file, e.g. given `source.png`, the value will be `source`
   - `%e` the extension of the target format, including the dot
