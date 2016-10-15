@@ -25,7 +25,7 @@ describe('metalsmith-convert', function() {
   });
   it('should croak on partially missing paramters', function(done){
     convert_test([
-      { src: '**/*.svg',
+      {
         resize: { width: 320, height: 240 }
       },
       {}], function(err, files) {
