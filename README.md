@@ -134,3 +134,9 @@ To speed up your development cycle you can use the `rename_only`
 option, pictures will not be processed and have a potentially wrong
 file ending, but if your setup can cope with that, on demand scaling
 might be preferable to longer conversion times.
+
+## Contributions
+
+Contributions are always welcome. Just make sure that all tests pass
+before sending a pull request. And don't forget to add tests for your
+contributions!
