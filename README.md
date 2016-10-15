@@ -55,7 +55,7 @@ require('metalsmith')(__dirname)
 
 ## Options
 
-metalsmith-convert requires the `src` and `target` options.
+metalsmith-convert requires the `src` options, if `target` is not given, files will be converted to the source-format.
 
 - `src` is a globbing pattern that specifies which files to convert
 - `target` is an imagemagick format specifier
@@ -96,6 +96,21 @@ It is possible to pass options as array of option-objects to implement multiple 
   }
 }
 ```
+
+Resize images without format conversion:
+```json
+{
+  "plugins": {
+    "metalsmith-convert":
+      {
+        "src": "**/*.svg",
+        "resize": {width: 320, height: 240},
+        "nameFormat": "%b_thumb%e"
+      },
+  }
+}
+```
+
 
 ## Development
 

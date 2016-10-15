@@ -1,6 +1,6 @@
 var assert = require('assert'),
     metalsmith = require('metalsmith'),
-    convert = require('..');
+    convert = require('..'),
     fs = require('fs'),
     sizeOf = require('image-size');
 
@@ -19,21 +19,20 @@ describe('metalsmith-convert', function() {
   it('should croak on missing paramters', function(done){
     convert_test({}, function(err, files) {
       if(!err) return done(new Error("Didn't error out on missing arguments."));
-      assert.equal(err.message, 'metalsmith-convert: "src" and "target" args required', 'Correct error was thrown');
+      assert.equal(err.message, 'metalsmith-convert: "src" arg is required', 'Correct error was thrown');
       return done();
     });
   });
   it('should croak on partially missing paramters', function(done){
     convert_test([
       { src: '**/*.svg',
-        target: 'png',
         resize: { width: 320, height: 240 }
       },
       {}], function(err, files) {
-             if(!err) return done(new Error("Didn't error out on missing arguments."));
-             assert.equal(err.message, 'metalsmith-convert: "src" and "target" args required', 'Correct error was thrown');
-             return done();
-           });
+        if(!err) return done(new Error("Didn't error out on missing arguments."));
+        assert.equal(err.message, 'metalsmith-convert: "src" arg is required', 'Correct error was thrown');
+        return done();
+      });
   });
   it('should convert from .svg to .png', function(done) {
     convert_test({
@@ -43,9 +42,22 @@ describe('metalsmith-convert', function() {
       remove: true
     }, function(err, files) {
          if (err) return done(err);
-         assert(files['static/images/test.png'], 'file was converted');
-         return done();
-       });
+      assert(files['static/images/test.png'], 'file was converted');
+      return done();
+    });
+  });
+  it('should convert from .svg to .svg without "target"', function(done) {
+    convert_test({
+      src: '**/*.svg',
+      IM: false,
+      remove: true,
+      resize: { width: 320, height: 240 },
+      nameFormat: '%b_%x_%y%e'
+    }, function(err, files) {
+      if (err) return done(err);
+      assert(files['static/images/test_320_240.svg'], 'file was converted');
+      return done();
+    });
   });
   it('should identify the image size', function(done) {
     convert_test({
@@ -55,10 +67,10 @@ describe('metalsmith-convert', function() {
       remove: true,
       nameFormat: '%b_%x_%y%e'
     }, function(err, files) {
-         if (err) return done(err);
-         assert(files['static/images/test_1052_744.png'], 'size was identified');
-         return done();
-       });
+      if (err) return done(err);
+      assert(files['static/images/test_1052_744.png'], 'size was identified');
+      return done();
+    });
   });
   it('should resize the image', function(done) {
     convert_test({
@@ -67,10 +79,10 @@ describe('metalsmith-convert', function() {
       remove: true,
       resize: { width: 320, height: 240 }
     }, function(err, files){
-         if (err) return done(err);
-         assert(files['static/images/test_320_240.png'], 'file was resized');
-         return done();
-       });
+      if (err) return done(err);
+      assert(files['static/images/test_320_240.png'], 'file was resized');
+      return done();
+    });
   });
   it('should resize and convert the image', function(done) {
     convert_test([
@@ -127,8 +139,8 @@ describe('metalsmith-convert', function() {
         target: 'png',
         resize: { width: 320, height: 320, resizeStyle: 'aspectfit'},
         nameFormat: '%b_thumb%e'
-    }, function(err, files){
-      if (err) return done(err);
+      }, function(err, files){
+        if (err) return done(err);
         var result = sizeOf(files['static/images/test_thumb.png'].contents);
 
         sizeOf('test/fixtures/simple/expected/test_thumb.png', function (err, dimensions) {
@@ -136,7 +148,7 @@ describe('metalsmith-convert', function() {
           assert.deepEqual(result, dimensions, 'aspectFit was correctly used');
           done();
         });
-    });
+      });
   });
   it('should rename_only the image', function(done) {
     convert_test([
