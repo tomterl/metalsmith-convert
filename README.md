@@ -72,10 +72,11 @@ metalsmith-convert requires the `src` options, if `target` is not given, files w
   - `%e` the extension of the target format, including the dot
   - `%x` the width of the resulting image
   - `%y` the height if the resulting image
+- `renameSourceFormat`: the name-format to rename the source files in the result/build to. Accepts the same place-holders as `nameFormat`.
 
 The plugin also forwards certain options directly to imagemagick-native, these options are `density`, `blur`, `rotate`, `flip`, `strip`, `gravity` and `quality`. See [imagemagick-native docs](https://github.com/mash/node-imagemagick-native#convertoptions-callback) for more info.
 
-It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
+- It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
 ```json
 {
   "plugins": {
@@ -97,7 +98,7 @@ It is possible to pass options as array of option-objects to implement multiple 
 }
 ```
 
-Resize images without format conversion:
+- Resize images without format conversion:
 ```json
 {
   "plugins": {
@@ -106,6 +107,21 @@ Resize images without format conversion:
         "src": "**/*.svg",
         "resize": {width: 320, height: 240},
         "nameFormat": "%b_thumb%e"
+      },
+  }
+}
+```
+
+- Convert to the source name, but keep the original under a different name:
+```json
+{
+  "plugins": {
+    "metalsmith-convert":
+      {
+        "src": "**/*.svg",
+        "resize": {width: 320, height: 240},
+        "nameFormat": "%b_thumb%e"
+        "renameSourceFormat": "%b_orig_%e"
       },
   }
 }
