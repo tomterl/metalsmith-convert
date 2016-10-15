@@ -77,7 +77,7 @@ metalsmith-convert requires the `src` options, if `target` is not given, files w
 The plugin also forwards certain options directly to imagemagick-native, these options are `density`, `blur`, `rotate`, `flip`, `strip`, `gravity` and `quality`. See [imagemagick-native docs](https://github.com/mash/node-imagemagick-native#convertoptions-callback) for more info.
 
 - It is possible to pass options as array of option-objects to implement multiple rules, e.g. resize to two sizes for different thumbnail sizes:
-```json
+```javascript
 {
   "plugins": {
     "metalsmith-convert": [
@@ -99,7 +99,7 @@ The plugin also forwards certain options directly to imagemagick-native, these o
 ```
 
 - Resize images without format conversion:
-```json
+```javascript
 {
   "plugins": {
     "metalsmith-convert":
@@ -113,7 +113,7 @@ The plugin also forwards certain options directly to imagemagick-native, these o
 ```
 
 - Convert to the source name, but keep the original under a different name:
-```json
+```javascript
 {
   "plugins": {
     "metalsmith-convert":
