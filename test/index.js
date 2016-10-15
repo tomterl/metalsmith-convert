@@ -59,6 +59,19 @@ describe('metalsmith-convert', function() {
       return done();
     });
   });
+  it('should not remove files when names clash', function(done) {
+    convert_test({
+      src: '**/*.svg',
+      IM: false,
+      remove: true,
+      resize: { width: 320, height: 240 },
+      nameFormat: '%b%e'
+    }, function(err, files) {
+      if (err) return done(err);
+      assert(files['static/images/test.svg'], 'file was converted');
+      return done();
+    });
+  });
   it('should identify the image size', function(done) {
     convert_test({
       src: '**/*.svg',
