@@ -49,7 +49,6 @@ describe('metalsmith-convert', function() {
   it('should convert from .svg to .svg without "target"', function(done) {
     convert_test({
       src: '**/*.svg',
-      IM: false,
       remove: true,
       resize: { width: 320, height: 240 },
       nameFormat: '%b_%x_%y%e'
@@ -62,7 +61,6 @@ describe('metalsmith-convert', function() {
   it('should not remove files when names clash', function(done) {
     convert_test({
       src: '**/*.svg',
-      IM: false,
       remove: true,
       resize: { width: 320, height: 240 },
       nameFormat: '%b%e'
@@ -76,7 +74,6 @@ describe('metalsmith-convert', function() {
     convert_test({
       src: '**/*.svg',
       target: 'png',
-      IM: false,
       remove: true,
       nameFormat: '%b_%x_%y%e'
     }, function(err, files) {
@@ -106,7 +103,6 @@ describe('metalsmith-convert', function() {
       {
         src: '**/*.svg',
         target: 'png',
-        IM: false,
         remove: true
       }], function(err, files){
         if (err) return done(err);
@@ -173,7 +169,6 @@ describe('metalsmith-convert', function() {
       {
         src: '**/*.svg',
         target: 'png',
-        IM: false,
         remove: true
       }], function(err, files){
         if (err) return done(err);
@@ -185,7 +180,6 @@ describe('metalsmith-convert', function() {
   it('should rename the source file', function(done) {
     convert_test({
       src: '**/*.svg',
-      IM: false,
       remove: true,
       resize: { width: 320, height: 240 },
       nameFormat: '%b%e',
