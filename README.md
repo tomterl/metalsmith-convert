@@ -55,7 +55,9 @@ require('metalsmith')(__dirname)
 
 ## Options
 
-metalsmith-convert requires the `src` options, if `target` is not given, files will be converted to the source-format.
+metalsmith-convert requires the `src` options.  The parameter `target`
+is optional; if it is not given, files will be converted to the
+source-format.
 
 - `src` is a globbing pattern that specifies which files to convert
 - `target` is an imagemagick format specifier
