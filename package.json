@@ -21,9 +21,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "debug": ">=2.6.9",
+    "debug": "^2.6.9",
     "imagemagick-native": "^1.9.2",
-    "minimatch": "^3.0.0"
+    "minimatch": "^3.0.2"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
