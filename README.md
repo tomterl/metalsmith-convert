@@ -1,10 +1,12 @@
+# Is anybody using this?
+
+Because I am not :) 
+
+If somebody other than me could take over as maintainer, in case there are users, that would be very welcome.  Security and usability would benefit, I think.
+
 # metalsmith-convert
 
 This is a plugin for [Metalsmith][] that uses [node-imagemagick-native][] to convert image-files
-
-Continuous testing courtesy of travis-ci:
-
-[![Build Status](https://travis-ci.org/tomterl/metalsmith-convert.png)](https://travis-ci.org/tomterl/metalsmith-convert)
 
 [metalsmith]: http://metalsmith.io
 [node-imagemagick-native]: https://github.com/mash/node-imagemagick-native
